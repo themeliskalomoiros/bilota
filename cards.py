@@ -12,4 +12,15 @@ class Card:
         self.rank = rank
         self.suit = suit
 
+    def __str__(self):
+        return f'{self.rank} of {self.suit}'
 
+
+class Deck:
+    "A bilota deck of cards."
+
+    def __init__(self):
+        self.stack = Stack()
+        for s in suits:
+            for r in ranks:
+                self.stack.push(Card(r, s))
