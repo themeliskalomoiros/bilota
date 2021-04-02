@@ -37,6 +37,15 @@ def get_card_points(card, suit_of_kozia):
             return 0
 
 
+def get_baza_points(baza, suit_of_kozia):
+    points = 0
+
+    for card in baza:
+        points += get_card_points(card, suit_of_kozia)
+
+    return points
+
+
 class Card:
     """A french-suited playing card."""
 
