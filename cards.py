@@ -1,3 +1,4 @@
+from random import shuffle
 from stacks import Stack
 
 
@@ -24,3 +25,9 @@ class Deck:
         for s in suits:
             for r in ranks:
                 self.stack.push(Card(r, s))
+
+    def shuffle(self):
+        if self.stack.size() == 32:
+            shuffle(self.stack.items)
+
+        raise RuntimeError('Only a full Deck can be shuffled.')
