@@ -20,6 +20,9 @@ class Player:
 
         raise RuntimeError(f'Player\'s {self.name} hand is empty.')
 
+    def __str__(self):
+        return f'Player \'{self.name}\''
+
 
 class Team:
     """A Team in Bilota has two Players."""
@@ -50,3 +53,6 @@ class Team:
     def save_game_score(self, suit_of_kozia):
         """Saves the points of the game"""
         self.total_score += self.get_bazes_points(suit_of_kozia)
+
+    def __str__(self):
+        return f'Team \'{self.name}\' ({self.player1}, {self.player2})'
