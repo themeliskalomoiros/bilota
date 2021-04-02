@@ -21,13 +21,18 @@ class Deck:
     "A bilota deck of cards."
 
     def __init__(self):
-        self.stack = Stack()
+        self.cards = Stack()
         for s in suits:
             for r in ranks:
-                self.stack.push(Card(r, s))
+                self.cards.push(Card(r, s))
 
     def shuffle(self):
-        if self.stack.size() == 32:
-            shuffle(self.stack.items)
+        """Shuffles the Deck only if it has max size."""
+        if self.cards.size() == 32:
+            shuffle(self.cards.items)
 
         raise RuntimeError('Only a full Deck can be shuffled.')
+
+    def get_card(self):
+        """Gets a card from the Deck."""
+        return self.cards.pop()
